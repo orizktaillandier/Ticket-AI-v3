@@ -1,0 +1,17 @@
+venv/
+__pycache__/
+*.pyc
+auth.json
+*.env
+.env
+.env.*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.zip
+*.rar
+*.7z
+.csv
+!syndicators.csv
+zoho_auth.json
