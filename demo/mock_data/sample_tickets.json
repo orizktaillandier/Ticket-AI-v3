@@ -1,0 +1,134 @@
+[
+  {
+    "ticket_id": "12345",
+    "ticket_number": "12345",
+    "subject": "Syndicator_Export_1 export issues - Dealership_3",
+    "description": "Hi team,\n\nWe need to cancel the Syndicator_Export_1 export for Dealership_3. The client has requested this to be done ASAP.\n\nThanks,\nSupport Agent_1\nDealer Support Specialist",
+    "status": "Open",
+    "created_time": "2025-11-01T10:30:00Z",
+    "threads": [
+      {
+        "author_name": "Support Agent_1",
+        "content": "Following up on this - the client is asking for an update."
+      }
+    ]
+  },
+  {
+    "ticket_id": "12346",
+    "ticket_number": "12346",
+    "subject": "Provider_Import_1 Import Problem - Dealership_4",
+    "description": "Hi Support Team,\n\nDealership_4 is still showing vehicles that were sold last week. Can you please check the Provider_Import_1 import? This is causing issues with their inventory display.\n\nBest regards,\nSupport Agent_2",
+    "status": "Open",
+    "created_time": "2025-11-02T14:15:00Z",
+    "threads": [
+      {
+        "author_name": "Support Agent_2",
+        "content": "The client called again - this is urgent."
+      }
+    ]
+  },
+  {
+    "ticket_id": "12347",
+    "ticket_number": "12347",
+    "subject": "Désactivation exportation - Multiple dealerships",
+    "description": "Bonjour,\n\nPouvez-vous désactiver les exportations pour les 2 concessionnaires suivants :\n- Dealership_6\n- Dealership_7\n\nMerci,\nSupport Agent_3",
+    "status": "Open",
+    "created_time": "2025-11-03T09:45:00Z",
+    "threads": []
+  },
+  {
+    "ticket_id": "12348",
+    "ticket_number": "12348",
+    "subject": "Syndicator_Export_2 Integration Status - Dealership_8",
+    "description": "Hi,\n\nCan you confirm if the Syndicator_Export_2 integration is live for Dealership_8? The dealer is asking about the status.\n\nThanks,\nAccount Manager_1",
+    "status": "Open",
+    "created_time": "2025-11-04T11:20:00Z",
+    "threads": [
+      {
+        "author_name": "Account Manager_1",
+        "content": "Dealer is ready to start using it if it's active."
+      }
+    ]
+  },
+  {
+    "ticket_id": "12349",
+    "ticket_number": "12349",
+    "subject": "New Car Pricing Issue - Dealership_5",
+    "description": "New car pricing is not updating from Provider_Import_2 for Dealership_5. Client says inventory feed shows correct MSRP, but website is off by $500.\n\nThis is affecting new inventory only.\n\nSupport Agent_4\nTechnical Support",
+    "status": "Open",
+    "created_time": "2025-11-05T16:30:00Z",
+    "threads": [
+      {
+        "author_name": "Support Agent_4",
+        "content": "Client is very frustrated - multiple customers have complained."
+      },
+      {
+        "author_name": "Client Contact",
+        "content": "This is costing us sales. Please fix urgently!"
+      }
+    ]
+  },
+  {
+    "ticket_id": "12350",
+    "ticket_number": "12350",
+    "subject": "Activate Syndicator_Export_3 feed for Dealership_2",
+    "description": "Hello,\n\nWe need to activate the Syndicator_Export_3 export feed for Dealership_2. They are a new client and want to start advertising their used inventory.\n\nPlease setup as soon as possible.\n\nOnboarding Specialist_1",
+    "status": "Open",
+    "created_time": "2025-11-06T08:00:00Z",
+    "threads": []
+  },
+  {
+    "ticket_id": "12351",
+    "ticket_number": "12351",
+    "subject": "Syndicator_Export_4 export not updating",
+    "description": "Hi team,\n\nThe Syndicator_Export_4 feed for Dealership_1 hasn't updated in 3 days. The dealer is calling multiple times per day about this.\n\nCan someone look into it urgently?\n\nSupport Agent_5",
+    "status": "Open",
+    "created_time": "2025-11-07T13:45:00Z",
+    "threads": [
+      {
+        "author_name": "Support Agent_5",
+        "content": "Still not fixed - dealer is threatening to cancel service."
+      }
+    ]
+  },
+  {
+    "ticket_id": "12352",
+    "ticket_number": "12352",
+    "subject": "General question about inventory types",
+    "description": "Quick question - can a dealer have separate feeds for new and used inventory going to the same syndicator?\n\nJust want to confirm before I tell the client.\n\nThanks!\nSupport Agent_6",
+    "status": "Open",
+    "created_time": "2025-11-08T10:15:00Z",
+    "threads": [],
+    "requester_email": "agent_6@thirdparty.com"
+  },
+  {
+    "ticket_id": "12353",
+    "ticket_number": "12353",
+    "subject": "Setup Syndicator_Export_5 feed - Dealership_1",
+    "description": "Hi D2CMedia,\n\nCould you please activate the Syndicator_Export_5 export feed for Dealership_1? They want to start syndicating their used inventory to this platform.\n\nThanks,\nJohn from Syndicator_Export_5",
+    "status": "Open",
+    "created_time": "2025-11-09T09:00:00Z",
+    "threads": [],
+    "requester_email": "john@syndicator_export_5.com"
+  },
+  {
+    "ticket_id": "12354",
+    "ticket_number": "12354",
+    "subject": "Syndicator_Export_6 setup - Dealership_2",
+    "description": "Hi Support,\n\nCan you please set up Syndicator_Export_6 for Dealership_2?\n\nAlso, when will this go live? The client is asking for a timeline.\n\nThanks,\nSara",
+    "status": "Open",
+    "created_time": "2025-11-09T10:30:00Z",
+    "threads": [],
+    "requester_email": "sara@thirdparty.com"
+  },
+  {
+    "ticket_id": "12355",
+    "ticket_number": "12355",
+    "subject": "Cancel Syndicator_Export_3 feed - Dealership_2",
+    "description": "Hi D2CMedia,\n\nPlease cancel the Syndicator_Export_3 feed for Dealership_2. The client has decided not to continue with this service.\n\nThanks,\nMike from Syndicator_Export_3",
+    "status": "Open",
+    "created_time": "2025-11-09T14:00:00Z",
+    "threads": [],
+    "requester_email": "mike@syndicator_export_3.com"
+  }
+]

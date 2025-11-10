@@ -14,12 +14,15 @@ logger = logging.getLogger(__name__)
 
 
 class OpenAIService:
-    """Service for interacting with OpenAI API."""
-    
+    """Service for interacting with OpenAI API (GPT-5)."""
+
     def __init__(self):
         """Initialize the OpenAI service."""
         self.api_key = settings.OPENAI_API_KEY
         self.model = settings.OPENAI_MODEL
+        self.reasoning_effort = settings.OPENAI_REASONING_EFFORT
+        self.verbosity = settings.OPENAI_VERBOSITY
+        # Legacy parameters - not used with GPT-5 but kept for backwards compatibility
         self.temperature = settings.OPENAI_TEMPERATURE
         self.max_tokens = settings.OPENAI_MAX_TOKENS
         self.client = AsyncOpenAI(api_key=self.api_key)
@@ -32,41 +35,39 @@ class OpenAIService:
         self,
         prompt: str,
         system_message: Optional[str] = None,
-        temperature: Optional[float] = None,
-        max_tokens: Optional[int] = None,
+        reasoning_effort: Optional[str] = None,
+        verbosity: Optional[str] = None,
     ) -> str:
         """
-        Generate a completion from OpenAI.
-        
+        Generate a completion from OpenAI GPT-5.
+
         Args:
             prompt: User prompt
-            system_message: Optional system message
-            temperature: Optional temperature override
-            max_tokens: Optional max tokens override
-            
+            system_message: Optional system message (will be prepended to input)
+            reasoning_effort: Optional reasoning effort override (minimal/low/medium/high)
+            verbosity: Optional verbosity override (low/medium/high)
+
         Returns:
             Generated text
-            
+
         Raises:
             Exception: If OpenAI API call fails
         """
-        messages = []
-        
+        # For GPT-5, combine system message and prompt into single input
+        input_text = prompt
         if system_message:
-            messages.append({"role": "system", "content": system_message})
-        
-        messages.append({"role": "user", "content": prompt})
-        
+            input_text = f"{system_message}\n\n{prompt}"
+
         try:
-            response = await self.client.chat.completions.create(
+            response = await self.client.responses.create(
                 model=self.model,
-                messages=messages,
-                temperature=temperature or self.temperature,
-                max_tokens=max_tokens or self.max_tokens,
+                input=input_text,
+                reasoning={"effort": reasoning_effort or self.reasoning_effort},
+                verbosity=verbosity or self.verbosity,
             )
-            
-            return response.choices[0].message.content
-            
+
+            return response.output_text
+
         except Exception as e:
             logger.error(f"OpenAI API error: {str(e)}")
             raise
@@ -79,48 +80,51 @@ class OpenAIService:
         self,
         ticket_text: str,
         system_prompt: Optional[str] = None,
+        reasoning_effort: Optional[str] = None,
     ) -> Tuple[Dict[str, Any], float]:
         """
-        Classify a ticket using OpenAI.
-        
+        Classify a ticket using OpenAI GPT-5.
+
         Args:
             ticket_text: Ticket text to classify
             system_prompt: Optional system prompt override
-            
+            reasoning_effort: Optional reasoning effort (minimal/low/medium/high)
+
         Returns:
             Tuple of (classification_result, confidence_score)
-            
+
         Raises:
             Exception: If OpenAI API call fails or response cannot be parsed
         """
         if not system_prompt:
             system_prompt = self._get_default_system_prompt()
-        
+
+        # Combine system prompt and ticket text for GPT-5
+        input_text = f"{system_prompt}\n\n{ticket_text}"
+
         try:
-            response = await self.client.chat.completions.create(
+            response = await self.client.responses.create(
                 model=self.model,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": ticket_text},
-                ],
-                temperature=self.temperature,
-                max_tokens=self.max_tokens,
+                input=input_text,
+                reasoning={"effort": reasoning_effort or self.reasoning_effort},
+                verbosity="low",  # Always use low verbosity for classification to get concise JSON
             )
-            
+
             # Parse the response
-            response_text = response.choices[0].message.content
+            response_text = response.output_text
             classification = self._parse_classification_response(response_text)
-            
+
             # Calculate confidence score based on response metadata
-            confidence_score = 0.0
-            if hasattr(response, "usage") and hasattr(response.usage, "completion_tokens"):
-                # More tokens usually means more confident response
-                # This is a simple heuristic and can be improved
-                completion_tokens = response.usage.completion_tokens
-                confidence_score = min(0.99, max(0.5, completion_tokens / 200))
-            
+            # For GPT-5, we use a simpler heuristic since the API structure is different
+            confidence_score = 0.85  # Default high confidence for GPT-5
+
+            # Check if all required fields are populated
+            required_fields = ["contact", "dealer_name", "category", "sub_category"]
+            populated_fields = sum(1 for field in required_fields if classification.get(field))
+            confidence_score = min(0.99, max(0.5, populated_fields / len(required_fields)))
+
             return classification, confidence_score
-            
+
         except Exception as e:
             logger.error(f"Error classifying ticket: {str(e)}")
             raise

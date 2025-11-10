@@ -172,31 +172,31 @@ class ClassifierService:
         
     async def _call_openai_classifier(self, text: str) -> Dict[str, Any]:
         """
-        Call OpenAI API to classify the ticket.
-        
+        Call OpenAI GPT-5 API to classify the ticket.
+
         Args:
             text: The text to classify
-            
+
         Returns:
             Raw classification from OpenAI
         """
         system_prompt = self._get_system_prompt()
-        
+
+        # Combine system prompt and text for GPT-5 input format
+        input_text = f"{system_prompt}\n\n{text.strip()}"
+
         try:
-            response = await self.openai_client.chat.completions.create(
+            response = await self.openai_client.responses.create(
                 model=settings.OPENAI_MODEL,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": text.strip()}
-                ],
-                temperature=settings.OPENAI_TEMPERATURE,
-                max_tokens=settings.OPENAI_MAX_TOKENS,
+                input=input_text,
+                reasoning={"effort": settings.OPENAI_REASONING_EFFORT},
+                verbosity="low",  # Use low verbosity for concise JSON output
             )
-            
+
             # Parse the response text as JSON
-            response_text = response.choices[0].message.content
+            response_text = response.output_text
             return self._parse_gpt_json(response_text)
-            
+
         except Exception as e:
             logger.error(f"Error calling OpenAI API: {str(e)}")
             return {}
@@ -1120,31 +1120,31 @@ class ClassifierService:
         
     async def _call_openai_classifier(self, text: str) -> Dict[str, Any]:
         """
-        Call OpenAI API to classify the ticket.
-        
+        Call OpenAI GPT-5 API to classify the ticket.
+
         Args:
             text: The text to classify
-            
+
         Returns:
             Raw classification from OpenAI
         """
         system_prompt = self._get_system_prompt()
-        
+
+        # Combine system prompt and text for GPT-5 input format
+        input_text = f"{system_prompt}\n\n{text.strip()}"
+
         try:
-            response = await self.openai_client.chat.completions.create(
+            response = await self.openai_client.responses.create(
                 model=settings.OPENAI_MODEL,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": text.strip()}
-                ],
-                temperature=settings.OPENAI_TEMPERATURE,
-                max_tokens=settings.OPENAI_MAX_TOKENS,
+                input=input_text,
+                reasoning={"effort": settings.OPENAI_REASONING_EFFORT},
+                verbosity="low",  # Use low verbosity for concise JSON output
             )
-            
+
             # Parse the response text as JSON
-            response_text = response.choices[0].message.content
+            response_text = response.output_text
             return self._parse_gpt_json(response_text)
-            
+
         except Exception as e:
             logger.error(f"Error calling OpenAI API: {str(e)}")
             return {}

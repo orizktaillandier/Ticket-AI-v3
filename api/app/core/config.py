@@ -78,7 +78,10 @@ class Settings(BaseSettings):
     
     # OpenAI API Configuration
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
-    OPENAI_MODEL: str = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    OPENAI_MODEL: str = os.getenv("OPENAI_MODEL", "gpt-5-mini")  # Updated to GPT-5
+    OPENAI_REASONING_EFFORT: str = os.getenv("OPENAI_REASONING_EFFORT", "low")  # minimal/low/medium/high
+    OPENAI_VERBOSITY: str = os.getenv("OPENAI_VERBOSITY", "low")  # low/medium/high
+    # Legacy parameters - kept for reference but not used with GPT-5
     OPENAI_TEMPERATURE: float = float(os.getenv("OPENAI_TEMPERATURE", "0.1"))
     OPENAI_MAX_TOKENS: int = int(os.getenv("OPENAI_MAX_TOKENS", "300"))
     

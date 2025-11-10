@@ -1,0 +1,72 @@
+{
+  "1001": {
+    "dealer_name": "Dealership_1",
+    "arr": 12000,
+    "package": "Standard",
+    "start_date": "2023-03-15",
+    "rep": "Rep_1"
+  },
+  "1002": {
+    "dealer_name": "Dealership_2",
+    "arr": 18000,
+    "package": "Premium",
+    "start_date": "2022-08-20",
+    "rep": "Rep_1"
+  },
+  "1003": {
+    "dealer_name": "Dealership_3",
+    "arr": 24000,
+    "package": "Premium",
+    "start_date": "2021-11-10",
+    "rep": "Rep_1"
+  },
+  "1004": {
+    "dealer_name": "Dealership_4",
+    "arr": 36000,
+    "package": "Enterprise",
+    "start_date": "2020-05-01",
+    "rep": "Rep_2"
+  },
+  "1005": {
+    "dealer_name": "Dealership_5",
+    "arr": 15000,
+    "package": "Standard",
+    "start_date": "2023-01-12",
+    "rep": "Rep_2"
+  },
+  "1006": {
+    "dealer_name": "Dealership_6",
+    "arr": 22000,
+    "package": "Premium",
+    "start_date": "2022-06-18",
+    "rep": "Rep_2"
+  },
+  "1007": {
+    "dealer_name": "Dealership_7",
+    "arr": 9000,
+    "package": "Basic",
+    "start_date": "2024-02-20",
+    "rep": "Rep_3"
+  },
+  "1008": {
+    "dealer_name": "Dealership_8",
+    "arr": 30000,
+    "package": "Enterprise",
+    "start_date": "2021-09-05",
+    "rep": "Rep_3"
+  },
+  "1009": {
+    "dealer_name": "Dealership_9",
+    "arr": 16000,
+    "package": "Standard",
+    "start_date": "2022-12-10",
+    "rep": "Rep_3"
+  },
+  "1010": {
+    "dealer_name": "Dealership_10",
+    "arr": 20000,
+    "package": "Premium",
+    "start_date": "2023-04-25",
+    "rep": "Rep_1"
+  }
+}

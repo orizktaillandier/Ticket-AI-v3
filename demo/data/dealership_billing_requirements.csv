@@ -1,0 +1,11 @@
+Dealer ID,Dealer Name,Order Required,Package Type,Monthly Fee,Notes
+1001,Dealership_1,No,Standard Export,Included,Existing package includes exports
+1002,Dealership_2,Yes,Premium Export,$99,New syndicator requires order
+1003,Dealership_3,No,Standard Export,Included,Existing package includes exports
+1004,Dealership_4,No,Standard Import,Included,Existing package includes imports
+1005,Dealership_5,Yes,Premium Import,$149,New provider requires order
+1006,Dealership_6,No,Standard Export,Included,Existing package includes exports
+1007,Dealership_7,No,Standard Export,Included,Existing package includes exports
+1008,Dealership_8,Yes,Premium Export,$99,New syndicator requires order
+1009,Dealership_9,No,Standard Export,Included,Existing package includes exports
+1010,Dealership_10,Yes,Premium Export,$99,New syndicator requires order
